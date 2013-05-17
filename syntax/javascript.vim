@@ -1,9 +1,9 @@
 " Vim syntax file
 " Language:     JavaScript
 " Maintainer:   Yi Zhao (ZHAOYI) <zzlinux AT hotmail DOT com>
-" Last Change:  June 4, 2009
-" Version:      0.7.7
-" Changes:      Add "undefined" as a type keyword
+" Last Change:  May 17, 2013
+" Version:      0.7.7.1
+" Changes:      Add Extjs related syntax
 "
 " TODO:
 "  - Add the HTML syntax inside the JSDoc
@@ -54,6 +54,13 @@ endif   "" JSDoc end
 
 syntax case match
 
+"" Extjs
+syntax match javaScriptSpecialFn           "console\.log\|Ext\.log"
+syntax match javaScriptExtjsCore           "Ext\.\(BLANK_IMAGE_URL\|SSL_SECURE_URL\|USE_NATIVE_JSON\|emptyFn\|enableFx\|enableGarbageCollector\|enableListenerCollection\|isAir\|isBorderBox\|isChrome\|isGecko2\|isGecko3\|isGecko\|isIE6\|isIE7\|isIE8\|isIE\|isLinux\|isMac\|isOpera\|isReady\|isSafari2\|isSafari3\|isSafari4\|isSafari\|isSecure\|isStrict\|isWindows\|useShims\|version\|addBehaviors\|applyIf\|apply\|clean\|copyTo\|decode\|destroyMembers\|destroy\|each\|encode\|esacpeRe\|extend\|flatten\|fly\|getCmp\|getBody\|getDoc\|getDom\|get\|id\|invoke\|isArray\|isDate\|isEmpty\|isFunction\|isObject\|isPrimitive\|isString\|isBoolean\|isNumber\|isDefined\|isElement\|max\|mean\|min\|ns\|namespace\|num\|onReady\|override\|partition\|pluck\|query\|reg\|removeNode\|select\|sum\|toArray\|type\|unique\|urlDecode\|urlEncode\|value\|zip\)"
+syntax match javaScriptExtjsDateClass      "Date\.\(dayNames\|defaults\|formatCodes\|formatFunctions\|monthNames\|monthNumbers\|parseFunctions\|DAY\|HOUR\|MILLI\|MINUTE\|MONTH\|SECOND\|YEAR\)"
+syntax match javaScriptExtjsMisc           "\.\(createCallback\|createDelegate\|createInterceptor\|createSequence\|defer\|call\|apply\|constrain\|escape\|format\|leftPad\|toggle\|trim\|indexOf\|remove\|between\|clearTime\|clone\|format\|getDayOfYear\|getDaysInMonth\|getElapsed\|getFirstDateOfMonth\|getFirstDayOfMonth\|getGMTOffset\|getLastDateOfMonth\|getLastDayOfMonth\|getMonthNumber\|getShortDayName\|getShortMonthName\|getSuffix\|getTimezone\|getWeekOfYear\|isLeapYear\|parseDate\)"
+syntax match javaScriptExtjsClass          "Ext\.\(Ajax\|EventManager\|QuickTips\|air\.Clipboard\|air\.DragType\|air\.FileProvider\|air\.NativeObservable\|air\.NativeWindow\|air\.NativeWindowGroup\|air\.NativeWindowManager\|air\.Sound\|air\.SystemMenu\|air\.SystemTray\|air\.VideoPanel\|chart\.Axis\|chart\.BarChart\|chart\.BarSeries\|chart\.CartesianChart\|chart\.CartesianSeries\|chart\.CategoryAxis\|chart\.Chart\|chart\.ColumnChart\|chart\.ColumnSeries\|chart\.LineChart\|chart\.LineSeries\|chart\.NumericAxis\|chart\.PieChart\|chart\.PieSeries\|chart\.Series\|chart\.TimeAxis\|data\.Api\|data\.ArrayReader\|data\.ArrayStore\|data\.Connection\|data\.DataProxy\|data\.DataReader\|data\.DataWriter\|data\.DirectProxy\|data\.DirectStore\|data\.Field\|data\.GroupingStore\|data\.HttpProxy\|data\.JsonReader\|data\.JsonStore\|data\.JsonWriter\|data\.MemoryProxy\|data\.Node\|data\.Record\|data\.SrciptTagProxy\|data\.SortTypes\|data\.Store\|data\.Tree\|data\.XmlReader\|data\.XmlStore\|data\.XmlWriter\|dd\.DD\|dd\.DDProxy\|dd\.DDTarget\|dd\.DragDrop\|dd\.DragDropMgr\|dd\.DragSource\|dd\.DragTracker\|dd\.DragZone\|dd\.DropTarget\|dd\.DropZone\|dd\.PanelProxy\|dd\.Registry\|dd\.ScrollManager\|dd\.StatusProxy\|direct\.JsonProvider\|direct\.PollingProvider\|direct\.Provider\|direct\.RemotingProvider\|form\.Action\.Load\|form\.Action\.Submit\|form\.Action\.DirectLoad\|form\.Action\.DirectSubmit\|form\.Action\|form\.BasicForm\|form\.Checkbox\|form\.CheckboxGroup\|form\.ComboBox\|form\.DateField\|form\.DisplayField\|form\.FieldSet\|form\.Field\|form\.FormPanel\|form\.Hidden\|form\.HtmlEditor\|form\.Label\|form\.NumberField\|form\.RadioGroup\|form\.Radio\|form\.TextArea\|form\.TextField\|form\.TimeField\|form\.TriggerField\|form\.TwinTriggerField\|form\.VTypes\|grid\.AbstractSelectionModel\|grid\.BooleanColumn\|grid\.CellSelectionModel\|grid\.CheckboxSelectionModel\|grid\.ColumnModel\|grid\.Column\|grid\.Datecolumn\|grid\.EditorGridPanel\|grid\.GridDragZone\|grid\.GridPanel\|grid\.GridView\|grid\.GroupingView\|grid\.PropertyColumnModel\|grid\.PropertyGrid\|grid\.PropertyRecord\|grid\.PropertyStore\|grid\.RowNumberer\|grid\.RowSelectionModel\|grid\.TemplateColumn\|layout\.AbsoluteLayout\|layout\.AccordionLayout\|layout\.AnchorLayout\|layout\.BorderLayout\.Region\|layout\.BorderLayout\.SplitRegin\|layout\.BorderLayout\|layout\.BoxLayout\|layout\.CardLayout\|layout\.ColumnLayout\|layout\.ContainerLayout\|layout\.FitLayout\|layout\.FormLayout\|layout\.HBoxLayout\|layout\.TableLayout\|layout\.ToolbarLayout\|layout\.VBoxLayout\|menu\.BaseItem\|menu\.CheckItem\|menu\.ColorMenu\|menu\.DateMenu\|menu\.Item\|menu\.MenuMgr\|menu\.Menu\|menu\.Separator\|menu\.TextItem\|state\.CookieProvider\|state\.Manager\|state\.Provider\|tree\.AsyncTreeNode\|tree\.DefaultSelectionModel\|tree\.MultiSelectionModel\|tree\.RootTreeNodeUI\|tree\.TreeDragZone\|tree\.TreeDropZone\|tree\.TreeEditor\|tree\.TreeFilter\|tree\.TreeLoader\|tree\.TreeNodeUI\|tree\.TreeNode\|tree\.TreePanel\|tree\.TreeSorter\|util\.CSS\|util\.ClickRepeater\|util\.DelayedTask\|util\.Format\|util\.JSON\|util\.MixedCollection\|util\.Observable\|util\.TaskRunner\|util\.TextMetrics\|Action\|Ajax\|BoxComponent\|ButtonGroup\|Button\|ColorPalette\|ComponentMgr\|Component\|CompositeElementLite\|CompositeElement\|Container\|CycleButton\|DataView\|DatePicker\|Direct\|DomHelper\|DomQuery\|Editor\|Element\|Error\|EventManager\|EventObject\|\FlashComponent\|FlashProxy\|Fx\|History\|KeyMap\|KeyNav\|Layer\|ListView\.ColumnResizer\|ListView\.Sorter\|ListView\|LoadMask\|MessageBox\|PagingToolbar\|Panel\|ProgressBar\|QuickTips\|QuickTip\|Resizable\|Shadow\|Slider\|Spacer\|SplitBar\.AbsoluteLayoutAdapter\|SplitBar\.BasicLayoutAdapter\|SplitBar\|SplitButton\|StoreMgr\|TabPanel\|TaskMgr\|Template\|Tip\|ToolTip\|Toolbar\.Fill\|Toolbar\.Item\|Toolbar\.Separator\|Toolbar\.Spacer\|Toolbar\.TextItem\|Toolbar\|Updater\.BasicRenderer\|Updater\.defaults\|Updater\|Viewport\|WindowGroup\|WindowMgr\|Window\|XTemplate\)"
+
 "" Syntax in the JavaScript code
 syntax match   javaScriptSpecial        "\\\d\d\d\|\\x\x\{2\}\|\\u\x\{4\}\|\\."
 syntax region  javaScriptStringD        start=+"+  skip=+\\\\\|\\$"+  end=+"+  contains=javaScriptSpecial,@htmlPreproc
@@ -68,16 +75,17 @@ syntax keyword javaScriptPrototype      prototype
 
 "" Programm Keywords
 syntax keyword javaScriptSource         import export
-syntax keyword javaScriptType           const this undefined var void yield 
+syntax keyword javaScriptType           const this undefined var void yield caller callee
 syntax keyword javaScriptOperator       delete new in instanceof let typeof
 syntax keyword javaScriptBoolean        true false
 syntax keyword javaScriptNull           null
+syntax keyword javaScriptIdentifier     arguments
 
 "" Statement Keywords
 syntax keyword javaScriptConditional    if else
 syntax keyword javaScriptRepeat         do while for
 syntax keyword javaScriptBranch         break continue switch case default return
-syntax keyword javaScriptStatement      try catch throw with finally
+syntax keyword javaScriptStatement      try catch throw with finally superclass
 
 syntax keyword javaScriptGlobalObjects  Array Boolean Date Function Infinity JavaArray JavaClass JavaObject JavaPackage Math Number NaN Object Packages RegExp String Undefined java netscape sun
 
@@ -135,7 +143,7 @@ endif "DOM/HTML/CSS
 
 
 "" Code blocks
-syntax cluster javaScriptAll       contains=javaScriptComment,javaScriptLineComment,javaScriptDocComment,javaScriptStringD,javaScriptStringS,javaScriptRegexpString,javaScriptNumber,javaScriptFloat,javaScriptLabel,javaScriptSource,javaScriptType,javaScriptOperator,javaScriptBoolean,javaScriptNull,javaScriptFunction,javaScriptConditional,javaScriptRepeat,javaScriptBranch,javaScriptStatement,javaScriptGlobalObjects,javaScriptExceptions,javaScriptFutureKeys,javaScriptDomErrNo,javaScriptDomNodeConsts,javaScriptHtmlEvents,javaScriptDotNotation
+syntax cluster javaScriptAll       contains=javaScriptComment,javaScriptLineComment,javaScriptDocComment,javaScriptStringD,javaScriptStringS,javaScriptRegexpString,javaScriptNumber,javaScriptFloat,javaScriptLabel,javaScriptSource,javaScriptType,javaScriptOperator,javaScriptBoolean,javaScriptNull,javaScriptFunction,javaScriptConditional,javaScriptRepeat,javaScriptBranch,javaScriptStatement,javaScriptGlobalObjects,javaScriptExceptions,javaScriptFutureKeys,javaScriptDomErrNo,javaScriptDomNodeConsts,javaScriptHtmlEvents,javaScriptDotNotation,javaScriptSpecialFn,javaScriptExtjsCore,javaScriptExtjsDateClass,javaScriptExtjsMisc,javaScriptExtjsClass,javaScriptIdentifier
 syntax region  javaScriptBracket   matchgroup=javaScriptBracket transparent start="\[" end="\]" contains=@javaScriptAll,javaScriptParensErrB,javaScriptParensErrC,javaScriptBracket,javaScriptParen,javaScriptBlock,@htmlPreproc
 syntax region  javaScriptParen     matchgroup=javaScriptParen   transparent start="("  end=")"  contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrC,javaScriptParen,javaScriptBracket,javaScriptBlock,@htmlPreproc
 syntax region  javaScriptBlock     matchgroup=javaScriptBlock   transparent start="{"  end="}"  contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrB,javaScriptParen,javaScriptBracket,javaScriptBlock,@htmlPreproc 
@@ -207,6 +215,7 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   HiLink javaScriptParensErrB           Error
   HiLink javaScriptParensErrC           Error
   HiLink javaScriptOperator             Operator
+  HiLink javaScriptIdentifier           Identifier
   HiLink javaScriptType                 Type
   HiLink javaScriptNull                 Type
   HiLink javaScriptNumber               Number
@@ -229,6 +238,11 @@ if version >= 508 || !exists("did_javascript_syn_inits")
 
   HiLink javaScriptCssStyles            Label
 
+  HiLink javaScriptExtjsMisc            Function
+  HiLink javaScriptExtjsClass           Type
+  HiLink javaScriptExtjsDateClass       Type
+  HiLink javaScriptExtjsCore            Special
+  HiLink javaScriptSpecialFn            Error
   delcommand HiLink
 endif
 
